@@ -1,6 +1,3 @@
-// Lab1.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include <iostream>
 #include <string>
@@ -11,71 +8,73 @@
 #include <Windows.h>
 
 using namespace std;
-#define X "Lubie Wd"
-#define Y 2048
-#define ILOSC 8
 
-class Osobnik 
+
+
+class Liczba 
 {
 public:
-	string chromosom;
-	unsigned int fitness;
-	friend ostream & operator<< (ostream &wyjscie, const Osobnik &s);
+	double x;
+	double wartosc;
+	friend ostream & operator<< (ostream &wyjscie, const Liczba &s);
+	double obliczWartosc(double x);
 };
 
-ostream & operator<< (ostream &wyjscie, const Osobnik &s) 
+ostream & operator<< (ostream &wyjscie, const Liczba &s) 
 {
-	return wyjscie << "Nazwa: " << s.chromosom << " fitness:" << s.fitness << endl;
+	return wyjscie << "X: " << s.x << " wartosc:" << s.wartosc << endl;
+}
+
+double Liczba::obliczWartosc(double x)
+{
+	return (x*x*x)- (x *x) + sin(4 * x) - cos(15 * x)
 }
 
 
 
-void swap(vector<Osobnik>& vec);
+void swap(vector<Liczba>& vec);
 
-bool mniejsze(Osobnik PierwszyOsobnik, Osobnik DrugiOsobnik) //funkcja mówi¹ca który element i w jakim wypadku jest mniejszy od drugiego
+bool mniejsze(Liczba PierwszyLiczba, Liczba DrugiLiczba) //funkcja mówi¹ca który element i w jakim wypadku jest mniejszy od drugiego
 {
-	return PierwszyOsobnik.fitness < DrugiOsobnik.fitness;
+	return PierwszyLiczba.wartosc < DrugiLiczba.wartosc;
 }
 
-void sortowanie(vector <Osobnik> &populacja1)
+void sortowanie(vector <Liczba> &populacja1)
 {
 	//cout << "------------------Sortowanie----------------------" << endl;
 	sort(populacja1.begin(), populacja1.end(), mniejsze);
 
-	/*for (int i = 0; i < populacja1.size(); i++)
-	{
-		cout << populacja1[i] << endl;
-	}*/
-	cout << "najmniejszy fitness:" << populacja1[0] << endl;
+
+	cout << "najmniejszy wartosc:" << populacja1[0] << endl;
 	
-	//getchar();
+
 }
 
 int main()
 {
 
 	//inicjalizacja populacji (2 wektory)
-	vector<Osobnik> populacja1;
-	vector<Osobnik> populacja2;
+	vector<Liczba> populacja1;
+	vector<Liczba> populacja2;
 	srand(time(NULL));
 
 	//wartosci poczatkowe
 	for (int i = 0; i < Y; i++) 
 	{
-		Osobnik tmp;
+		Liczba tmp;
 		for (int j = 0; j < ILOSC; j++) {
-			tmp.chromosom += (rand() % 94) + 32;
+			tmp.x += (rand() % 94) + 32;
 		}
 		populacja1.push_back(tmp);
-		tmp.chromosom = "";
+		tmp.x = "";
 		populacja2.push_back(tmp);
 	}
 
 	//obliczanie fitnesu
 	for (int i = 0; i < populacja1.size(); i++) {
-		populacja1[i].fitness = 0;
+		populacja1[i].wartosc = 0;
 		for (int j = 0; j < ILOSC; j++) {
-			populacja1[i].fitness += abs(int(populacja1[i].chromosom[j] - X[j]));
+			populacja1[i].wartosc += abs(int(populacja1[i].x[j] - X[j]));
 		}
 	}
 	// getchar();
@@ -96,9 +95,9 @@ for (int i = 0; i < 200000; i++)
 
 
 
-	if (populacja1[0].fitness == 0)
+	if (populacja1[0].wartosc == 0)
 		{
-			cout << "Idealne dopasowanie: " << endl << "Nazwa: " << populacja1[0].chromosom << endl << " Fitness: " << populacja1[0].fitness;
+			cout << "Idealne dopasowanie: " << endl << "Nazwa: " << populacja1[0].x << endl << " Fitness: " << populacja1[0].wartosc;
 			getchar();
 			exit(1);
 		}
@@ -108,8 +107,8 @@ for (int i = 0; i < 200000; i++)
 	//cout << "------------------Kopiowanie 5%----------------------" << endl;
 	for (int i = 0; i < 102; i++)
 		{
-			populacja2[i].chromosom = populacja1[i].chromosom;
-			populacja2[i].fitness = populacja1[i].fitness;
+			populacja2[i].x = populacja1[i].x;
+			populacja2[i].wartosc = populacja1[i].wartosc;
 			//cout << populacja2[i] << endl;
 		}
 	// getchar();
@@ -123,10 +122,10 @@ for (int i = 0; i < 200000; i++)
 		int osobnik2 = (rand() % 2048 - 103) + 103;
 		int wspolczynnik_podzialu = (rand() % ILOSC-1) + 1;
 			//cout << osobnik1 << ", " << osobnik2 << "," << wspolczynnik_podzialu;
-		string tmp = populacja1[osobnik1].chromosom.substr(0, wspolczynnik_podzialu);
-		string tmp1 = populacja1[osobnik2].chromosom.substr(wspolczynnik_podzialu, ILOSC);
-		populacja2[i + 102].chromosom = tmp + tmp1;
-		//cout << "Krzyzowanie: " << populacja2[i + 102].chromosom << endl;
+		string tmp = populacja1[osobnik1].x.substr(0, wspolczynnik_podzialu);
+		string tmp1 = populacja1[osobnik2].x.substr(wspolczynnik_podzialu, ILOSC);
+		populacja2[i + 102].x = tmp + tmp1;
+		//cout << "Krzyzowanie: " << populacja2[i + 102].x << endl;
 
 			//mutacja
 		int mutacja = (rand() % 101);
@@ -135,34 +134,34 @@ for (int i = 0; i < 200000; i++)
 		{
 			//cout << "------------------ Mutacja ----------------------" << endl;
 			int numer_mutacji = (rand() % ILOSC-1) + 1;
-			tmp = populacja2[i + 102].chromosom.substr(0, numer_mutacji - 1);
-			tmp1 = populacja2[i + 102].chromosom.substr(numer_mutacji, ILOSC);
+			tmp = populacja2[i + 102].x.substr(0, numer_mutacji - 1);
+			tmp1 = populacja2[i + 102].x.substr(numer_mutacji, ILOSC);
 			char znak = (rand() % 94) + 32;
-			populacja2[i + 102].chromosom = tmp + znak + tmp1;
-			//cout << populacja2[i + 102].chromosom << endl;
+			populacja2[i + 102].x = tmp + znak + tmp1;
+			//cout << populacja2[i + 102].x << endl;
 		}
 	}
 
 		//wygenerowanie reszty osobników
 	for (int i = 302; i < Y; i++)
 	{
-		Osobnik tmp;
+		Liczba tmp;
 		for (int j = 0; j < ILOSC; j++) 
 		{
-			tmp.chromosom += (rand() % 94) + 32;
+			tmp.x += (rand() % 94) + 32;
 		}
-			populacja2[i].chromosom = tmp.chromosom;
-		//	cout << populacja2[i].chromosom << "   " << populacja2[i].fitness << endl;
+			populacja2[i].x = tmp.x;
+		//	cout << populacja2[i].x << "   " << populacja2[i].wartosc << endl;
 	}
 	//	getchar();
 
 		//obliczanie fitnesu
 	for (int i = 0; i < populacja2.size(); i++) 
 	{
-		populacja2[i].fitness = 0;
+		populacja2[i].wartosc = 0;
 		for (int j = 0; j < ILOSC; j++) 
 		{
-			populacja2[i].fitness += abs(int(populacja2[i].chromosom[j] - X[j]));
+			populacja2[i].wartosc += abs(int(populacja2[i].x[j] - X[j]));
 		}
 	}
 	//getchar();
