@@ -29,14 +29,6 @@ ostream & operator<< (ostream &wyjscie, const Osobnik &s)
 }
 
 
-/*bool sprawdz(populacja1or<Osobnik> populacja1) {
-for (int i = 0;i < Y; i++) {
-if (populacja1[i].fitness < populacja1[i + 1].fitness)
-return true;
-else
-return false;
-}
-}*/
 
 void swap(vector<Osobnik>& vec);
 
