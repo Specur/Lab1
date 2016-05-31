@@ -18,7 +18,7 @@ class Liczba
 public:
 	double x;
 	double wartosc;
-	int bity[];
+	int bity[21];
 
 
 	friend ostream & operator<< (ostream &wyjscie, const Liczba &s);
@@ -34,18 +34,23 @@ double obliczWartosc(double x)
 	return (x*x*x) - (x *x) + sin(4 * x) - cos(15 * x);
 }
 
-void obliczRozwiniecie(Liczba populacja1)
+void obliczRozwiniecie(Liczba &populacja1)
 {
 	int cyfra = populacja1.x;
 	populacja1.bity[0] = cyfra;
 	double ulamek = populacja1.x - cyfra;
-	for (int i = 1; i < 20; i++)
+	for (int i = 1; i < 21; i++)
 	{
 		ulamek = ulamek * 2;
-		if (ulamek > 1 || ulamek < -1)
+		if (ulamek >= 1 )
 		{
 			populacja1.bity[i] = 1;
 			ulamek = ulamek - 1;
+		}
+		else if (ulamek <= -1)
+		{
+			populacja1.bity[i] = 1;
+			ulamek = ulamek + 1;
 		}
 		else
 			populacja1.bity[i] = 0;
@@ -90,15 +95,13 @@ int main()
 		populacja1.push_back(tmp);
 		tmp.x = 0;
 		populacja2.push_back(tmp);
-	}
-	for (int i = 0; i < 2048; i++){
 		obliczRozwiniecie(populacja1[i]);
-	}
-	//obliczanie wartosci
-	for (int i = 0; i < populacja1.size(); i++) {
+		for (int j = 0; j < 20; j++)
+			cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
 		populacja1[i].wartosc = obliczWartosc(populacja1[i].x);
 	}
-	// getchar();
+
+
 	sortowanie(populacja1);
 
 	cout << "---------------Iteracje---------------" << endl;
