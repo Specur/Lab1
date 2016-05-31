@@ -13,18 +13,18 @@ using namespace std;
 
 #define Y 2048
 #define dokladnosc 0.0009765625;
-class Liczba 
+class Liczba
 {
 public:
 	double x;
 	double wartosc;
 	int bity[];
-	
+
 
 	friend ostream & operator<< (ostream &wyjscie, const Liczba &s);
 };
 
-ostream & operator<< (ostream &wyjscie, const Liczba &s) 
+ostream & operator<< (ostream &wyjscie, const Liczba &s)
 {
 	return wyjscie << "X: " << s.x << " wartosc:" << s.wartosc << endl;
 }
@@ -66,7 +66,7 @@ void sortowanie(vector <Liczba> &populacja1)
 	sort(populacja1.begin(), populacja1.end(), wieksze);
 
 	cout << "najmniejsza wartosc:" << populacja1[0] << endl;
-	
+
 
 }
 
@@ -83,9 +83,9 @@ int main()
 	int liczba_2;
 	int liczba_3;
 	//wartosci poczatkowe
-	for (int i = 0; i < Y; i++) 
+	for (int i = 0; i < Y; i++)
 	{
-		tmp.x = (double)((rand() % 100000) - 100000.0)/100000.0;
+		tmp.x = (double)((rand() % 100000) - 100000.0) / 100000.0;
 		cout << setprecision(20) << tmp.x;
 		populacja1.push_back(tmp);
 		tmp.x = 0;
@@ -103,73 +103,74 @@ int main()
 
 	cout << "---------------Iteracje---------------" << endl;
 
-for (int i = 0; i < 200000; i++)
-{
-	cout << "Iteracja: " << i + 1 << endl;
+	for (int i = 0; i < 200000; i++)
+	{
+		cout << "Iteracja: " << i + 1 << endl;
 
 
 
-	/** warunki zakoñczenia iteracji -NIE WIEM JAK ZROBIC xd
-	if (populacja1[0].wartosc == 0)
+		/** warunki zakoñczenia iteracji -NIE WIEM JAK ZROBIC xd
+		if (populacja1[0].wartosc == 0)
 		{
-			cout << "Idealne dopasowanie: " << endl << "Nazwa: " << populacja1[0].x << endl << " Fitness: " << populacja1[0].wartosc;
-			getchar();
-			exit(1);
+		cout << "Idealne dopasowanie: " << endl << "Nazwa: " << populacja1[0].x << endl << " Fitness: " << populacja1[0].wartosc;
+		getchar();
+		exit(1);
 		}*/
 
-	//tutaj do zmiennej liczba1 jest przypisywany nr indexu osobnika ktory zostal wylosowany za pomoca metody ruletki
+		//tutaj do zmiennej liczba_2 jest przypisywany nr indexu osobnika ktory zostal wylosowany za pomoca metody ruletki
+		//do zmiennej liczba_3 jest zapisywany index drugiego osobnika
 
-	for (int i = 0; i < Y; i++)
-	{
-		liczba = (double)((rand() % 5458));
-		liczba_1 = (double)((rand() % 5458));
-		if (liczba < 100){
-			liczba_2 = (int)liczba / 10;
-		}
-		else if (liczba < 910){
-			liczba_2 = ((int)liczba - 100 / 9) + 10;
-		}
-		else if (liczba < 2910){
-			liczba_2 = ((int)liczba - 910 / 5) + 100;
-		}
-		else if (liczba < 4910){
-			liczba_2 = ((int)liczba - 2910 / 2) + 500;
-		}
-		else{
-			liczba_2 = ((int)liczba - 4910 / 1) + 1500;
+		for (int i = 0; i < Y; i++)
+		{
+			liczba = (double)((rand() % 5458));
+			liczba_1 = (double)((rand() % 5458));
+			if (liczba < 100){
+				liczba_2 = (int)liczba / 10;
+			}
+			else if (liczba < 910){
+				liczba_2 = ((int)liczba - 100 / 9) + 10;
+			}
+			else if (liczba < 2910){
+				liczba_2 = ((int)liczba - 910 / 5) + 100;
+			}
+			else if (liczba < 4910){
+				liczba_2 = ((int)liczba - 2910 / 2) + 500;
+			}
+			else{
+				liczba_2 = ((int)liczba - 4910 / 1) + 1500;
+
+			}
+
+			if (liczba_1 < 100){
+				liczba_3 = (int)liczba / 10;
+			}
+			else if (liczba_1 < 910){
+				liczba_3 = ((int)liczba - 100 / 9) + 10;
+			}
+			else if (liczba_1 < 2910){
+				liczba_3 = ((int)liczba - 910 / 5) + 100;
+			}
+			else if (liczba_1 < 4910){
+				liczba_3 = ((int)liczba - 2910 / 2) + 500;
+			}
+			else{
+				liczba_3 = ((int)liczba - 4910 / 1) + 1500;
+
+			}
+
+
+			//tutaj mamy juz wybrane osobniki liczba_2 i liczba_3 przechowuja ich indexy 
+			//teraz mutacje genow
+
+
 
 		}
 
-		if (liczba_1 < 100){
-			liczba_3 = (int)liczba / 10;
-		}
-		else if (liczba_1 < 910){
-			liczba_3 = ((int)liczba - 100 / 9) + 10;
-		}
-		else if (liczba_1 < 2910){
-			liczba_3 = ((int)liczba - 910 / 5) + 100;
-		}
-		else if (liczba_1 < 4910){
-			liczba_3 = ((int)liczba - 2910 / 2) + 500;
-		}
-		else{
-			liczba_3 = ((int)liczba - 4910 / 1) + 1500;
 
-		}
-
-
-		//tutaj mamy juz wybrane osobniki liczba_2 i liczba_3 przechowuja ich indexy 
-		//teraz mutacje genow
-
-	//	populacja2[i].bity = 
-
-	}
-		
-
-	//cout << "------------------ Kry¿owanie ----------------------" << endl;
-/**	for (int i = 0; i < 200; i++)
-	{
-		TO JEST DOBRZE 
+		//cout << "------------------ Kry¿owanie ----------------------" << endl;
+		/**	for (int i = 0; i < 200; i++)
+		{
+		TO JEST DOBRZE
 		for(int i=0;i<Y;i++)
 		{
 		if(i==0)
@@ -178,40 +179,40 @@ for (int i = 0; i < 200000; i++)
 		populacja1[i].kolopoczatek = populacja1[i-1].kolokoniec+0.0000000001;
 		populacja1.[i].kolokoniec = populacja[i].kolopoczatek + (2048-Y)/2098176;
 		}
-		DOT¥D 
+		DOT¥D
 
 
 		int wspolczynnik_podzialu = (rand() % Y-1) + 1;
-			//cout << osobnik1 << ", " << osobnik2 << "," << wspolczynnik_podzialu;
+		//cout << osobnik1 << ", " << osobnik2 << "," << wspolczynnik_podzialu;
 		string tmp = populacja1[osobnik1].x.substr(0, wspolczynnik_podzialu);
 		string tmp1 = populacja1[osobnik2].x.substr(wspolczynnik_podzialu, Y);
 		populacja2[i + 102].x = tmp + tmp1;
 
-			//mutacja
+		//mutacja
 		int mutacja = (rand() % 101);
-		
+
 		if (mutacja < 5)
 		{
-			//cout << "------------------ Mutacja ----------------------" << endl;
-			int numer_mutacji = (rand() % Y-1) + 1;
-			tmp = populacja2[i + 102].x.substr(0, numer_mutacji - 1);
-			tmp1 = populacja2[i + 102].x.substr(numer_mutacji, Y);
-			char znak = (rand() % 94) + 32;
-			populacja2[i + 102].x = tmp + znak + tmp1;
-			//cout << populacja2[i + 102].x << endl;
+		//cout << "------------------ Mutacja ----------------------" << endl;
+		int numer_mutacji = (rand() % Y-1) + 1;
+		tmp = populacja2[i + 102].x.substr(0, numer_mutacji - 1);
+		tmp1 = populacja2[i + 102].x.substr(numer_mutacji, Y);
+		char znak = (rand() % 94) + 32;
+		populacja2[i + 102].x = tmp + znak + tmp1;
+		//cout << populacja2[i + 102].x << endl;
 		}
-	}
-*/
+		}
+		*/
 
 
 		//obliczanie wartoœci funkcji
-	for (int i = 0; i < populacja2.size(); i++) {
-		populacja2[i].wartosc = obliczWartosc(populacja2[i].x);
+		for (int i = 0; i < populacja2.size(); i++) {
+			populacja2[i].wartosc = obliczWartosc(populacja2[i].x);
 		}
 
-	sortowanie(populacja2);
-//	swap(populacja1, populacja2);
-}
+		sortowanie(populacja2);
+		//	swap(populacja1, populacja2);
+	}
 
 }
 
