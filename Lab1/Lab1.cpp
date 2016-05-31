@@ -12,7 +12,7 @@
 using namespace std;
 
 #define Y 2048
-#define dokladnosc 0.0009765625;
+
 class Liczba
 {
 public:
@@ -37,7 +37,15 @@ double obliczWartosc(double x)
 void obliczRozwiniecie(Liczba &populacja1)
 {
 	int cyfra = populacja1.x;
-	populacja1.bity[0] = cyfra;
+	if (populacja1.x < 0)
+	{
+		populacja1.bity[0] = 1;
+	}	
+	else
+	{
+		populacja1.bity[0] = 0;
+	}
+		
 	double ulamek = populacja1.x - cyfra;
 	for (int i = 1; i < 21; i++)
 	{
@@ -57,10 +65,24 @@ void obliczRozwiniecie(Liczba &populacja1)
 	}
 }
 
+double obliczWartoscRozwiniecia(Liczba &populacja1)
+{
+	double wartosc;
+	if (populacja1.bity[0] == 0)
+		wartosc = 0;
+	else wartosc = -1;
+	for (int i = 1; i < 21; i++)
+	{
+		wartosc += populacja1.bity[i] / pow(2,i);
+	}
+	if (populacja1.x <0)
+	return -1* (1+wartosc);
+	else return wartosc;
+}
 
 void swap(vector<Liczba>& vec);
 
-bool wieksze(Liczba PierwszaLiczba, Liczba DrugaLiczba) //funkcja mówi¹ca który element i w jakim wypadku jest mniejszy od drugiego
+bool wieksze(Liczba PierwszaLiczba, Liczba DrugaLiczba) //funkcja mówi¹ca który element i w jakim wypadku jest wiekszy
 {
 	return PierwszaLiczba.wartosc > DrugaLiczba.wartosc;
 }
@@ -70,7 +92,7 @@ void sortowanie(vector <Liczba> &populacja1)
 	//cout << "------------------Sortowanie----------------------" << endl;
 	sort(populacja1.begin(), populacja1.end(), wieksze);
 
-	cout << "najmniejsza wartosc:" << populacja1[0] << endl;
+	cout << "Najwieksza wartosc:" << populacja1[0] << endl;
 
 
 }
@@ -91,16 +113,17 @@ int main()
 	for (int i = 0; i < Y; i++)
 	{
 		tmp.x = (double)((rand() % 100000) - 100000.0) / 100000.0;
-		cout << setprecision(20) << tmp.x;
+		//cout << setprecision(20) << tmp.x;
 		populacja1.push_back(tmp);
 		tmp.x = 0;
 		populacja2.push_back(tmp);
 		obliczRozwiniecie(populacja1[i]);
-		for (int j = 0; j < 20; j++)
-			cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
+		//for (int j = 0; j < 20; j++)
+			//cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
 		populacja1[i].wartosc = obliczWartosc(populacja1[i].x);
 	}
 
+	
 
 	sortowanie(populacja1);
 
