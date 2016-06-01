@@ -10,15 +10,14 @@
 #include <Windows.h>
 
 using namespace std;
-
-#define Y 2048
+#define Y 4
 
 class Liczba
 {
 public:
 	double x;
 	double wartosc;
-	int bity[21];
+	int bity[41];
 
 
 	friend ostream & operator<< (ostream &wyjscie, const Liczba &s);
@@ -47,7 +46,7 @@ void obliczRozwiniecie(Liczba &populacja1)
 	}
 		
 	double ulamek = populacja1.x - cyfra;
-	for (int i = 1; i < 21; i++)
+	for (int i = 1; i < 41; i++)
 	{
 		ulamek = ulamek * 2;
 		if (ulamek >= 1 )
@@ -71,7 +70,7 @@ double obliczWartoscRozwiniecia(Liczba &populacja1)
 	if (populacja1.bity[0] == 0)
 		wartosc = 0;
 	else wartosc = -1;
-	for (int i = 1; i < 21; i++)
+	for (int i = 1; i < 41; i++)
 	{
 		wartosc += populacja1.bity[i] / pow(2,i);
 	}
@@ -112,13 +111,13 @@ int main()
 	//wartosci poczatkowe
 	for (int i = 0; i < Y; i++)
 	{
-		tmp.x = (double)((rand() % 100000) - 100000.0) / 100000.0;
+		tmp.x = ((double)((rand() % 20000)*10.3) - 100000.0) / 100000.0;
 		//cout << setprecision(20) << tmp.x;
 		populacja1.push_back(tmp);
 		tmp.x = 0;
 		populacja2.push_back(tmp);
 		obliczRozwiniecie(populacja1[i]);
-		//for (int j = 0; j < 20; j++)
+		//for (int j = 0; j < 40; j++)
 			//cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
 		populacja1[i].wartosc = obliczWartosc(populacja1[i].x);
 	}
