@@ -1,20 +1,9 @@
-﻿Build started 2016-05-31 20:07:53.
-     1>Project "C:\Users\Salieri\Documents\GitHub\Lab1\Lab1\Lab1.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         D:\Programy\MS Visual Studio 2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Lab1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Lab1.cpp
-         Lab1.cpp
-     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(21): warning C4200: nonstandard extension used : zero-sized array in struct/union
-                 Cannot generate copy-ctor or copy-assignment operator when UDT contains a zero-sized array
-     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(37): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(76): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(89): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(171): warning C4018: '<' : signed/unsigned mismatch
-       Link:
-         D:\Programy\MS Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.lib" /MACHINE:X86 Debug\Lab1.obj
-         Debug\stdafx.obj
-         Lab1.vcxproj -> C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.exe
-     1>Done Building Project "C:\Users\Salieri\Documents\GitHub\Lab1\Lab1\Lab1.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.12
+﻿  Lab1.cpp
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(39): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(106): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(153): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(154): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(186): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(197): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(213): warning C4018: '<' : signed/unsigned mismatch
+  Lab1.vcxproj -> C:\Users\Mirosław\Desktop\Lab1-master (3)\Lab1-master\Debug\Lab1.exe
