@@ -21,12 +21,12 @@ public:
 
 
 	friend ostream & operator<< (ostream &wyjscie, const Liczba &s);
-	
+
 };
 
 ostream & operator<< (ostream &wyjscie, const Liczba &s)
 {
-	
+
 	return wyjscie << "X: " << s.x << " wartosc:" << s.wartosc << endl;
 }
 
@@ -42,17 +42,17 @@ void obliczRozwiniecie(Liczba &populacja1)
 	if (populacja1.x < 0)
 	{
 		populacja1.bity[0] = 1;
-	}	
+	}
 	else
 	{
 		populacja1.bity[0] = 0;
 	}
-		
+
 	double ulamek = populacja1.x - cyfra;
 	for (int i = 1; i < 41; i++)
 	{
 		ulamek = ulamek * 2;
-		if (ulamek >= 1 )
+		if (ulamek >= 1)
 		{
 			populacja1.bity[i] = 1;
 			ulamek = ulamek - 1;
@@ -75,10 +75,10 @@ double obliczWartoscRozwiniecia(Liczba &populacja1)
 	else wartosc = -1;
 	for (int i = 1; i < 41; i++)
 	{
-		wartosc += populacja1.bity[i] / pow(2,i);
+		wartosc += populacja1.bity[i] / pow(2, i);
 	}
 	if (populacja1.x <0)
-	return -1* (1+wartosc);
+		return -1 * (1 + wartosc);
 	else return wartosc;
 }
 
@@ -93,7 +93,7 @@ void sortowanie(vector <Liczba> &populacja1)
 {
 	//cout << "------------------Sortowanie----------------------" << endl;
 	sort(populacja1.begin(), populacja1.end(), wieksze);
-	
+
 	cout << "Najwieksza wartosc:" << populacja1[0] << endl;
 
 
@@ -101,7 +101,7 @@ void sortowanie(vector <Liczba> &populacja1)
 
 int main()
 {
-	
+
 	//inicjalizacja populacji (2 wektory)
 	vector<Liczba> populacja1;
 	vector<Liczba> populacja2;
@@ -123,11 +123,11 @@ int main()
 		populacja2.push_back(tmp);
 		obliczRozwiniecie(populacja1[i]);
 		//for (int j = 0; j < 40; j++)
-			//cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
+		//cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
 		populacja1[i].wartosc = obliczWartosc(populacja1[i].x);
 	}
 
-	
+
 
 	sortowanie(populacja1);
 
@@ -186,7 +186,7 @@ int main()
 			//teraz krzyzowanie i zapisywanie do populacja2
 
 			procent_krzyzowania = (double)((1 + rand() % 40));
-			
+
 			for (int j = 0; j < 41; j++){
 				if (j < procent_krzyzowania){
 					populacja2[i].bity[j] = populacja1[liczba_2].bity[j];
@@ -194,7 +194,7 @@ int main()
 				else{
 					populacja2[i].bity[j] = populacja1[liczba_3].bity[j];
 				}
-				
+
 			}
 			czy_mutujemy = (double)((rand() % 100));
 			if (czy_mutujemy < 5){
@@ -217,7 +217,7 @@ int main()
 		}
 
 		sortowanie(populacja2);
-			swap(populacja1, populacja2);
+		swap(populacja1, populacja2);
 	}
 
 }

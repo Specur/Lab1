@@ -1,9 +1,10 @@
-﻿  Lab1.cpp
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(39): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(106): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(153): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(154): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(186): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(197): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\lab1-master (3)\lab1-master\lab1\lab1.cpp(213): warning C4018: '<' : signed/unsigned mismatch
-  Lab1.vcxproj -> C:\Users\Mirosław\Desktop\Lab1-master (3)\Lab1-master\Debug\Lab1.exe
+﻿  stdafx.cpp
+  Lab1.cpp
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(41): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(108): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(155): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(156): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(188): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(199): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(215): warning C4018: '<' : signed/unsigned mismatch
+  Lab1.vcxproj -> C:\Users\Mirosław\Desktop\ok\Lab1-master\Debug\Lab1.exe
