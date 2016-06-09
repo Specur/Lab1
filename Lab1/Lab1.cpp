@@ -10,7 +10,8 @@
 #include <Windows.h>
 
 using namespace std;
-#define Y 32
+#define Y 100
+
 
 class Liczba
 {
@@ -102,9 +103,6 @@ void sortowanie(vector <Liczba> &populacja1)
 	//cout << "------------------Sortowanie----------------------" << endl;
 	sort(populacja1.begin(), populacja1.end(), wieksze);
 
-	cout << "Najwieksza wartosc:" << populacja1[0] << endl;
-
-
 }
 
 int main()
@@ -124,7 +122,11 @@ int main()
 	//wartosci poczatkowe
 	for (int i = 0; i < Y; i++)
 	{
-		tmp.x = ((double)((rand() % 20000)*10.3) - 100000.0) / 100000.0;
+		tmp.x = -2;
+		while (tmp.x > 1 || tmp.x < -1)
+		{
+			tmp.x = ((double)((rand() % 20000)*10.3) - 100000.0) / 100000.0;
+		}
 		//cout << setprecision(20) << tmp.x;
 		populacja1.push_back(tmp);
 		tmp.x = 0;
@@ -152,13 +154,14 @@ int main()
 		}
 		obliczWartosc(populacja1);
 		obliczWartosc(populacja2);
-		
+		//sprawdzamy czy wartoœæ pierwszego (najlepszego) elementu jest ju¿ wystarczaj¹co bliska rozwi¹zaniu
 		if (populacja1[0].wartosc >1.72)
 		{
 		cout << "Idealne dopasowanie: " << endl << "X =  " << populacja1[0].x << endl << "Wartosc: " << populacja1[0].wartosc;
 		getchar();
 		exit(1);
 		}
+
 
 		//tutaj do zmiennej liczba_2 jest przypisywany nr indexu osobnika ktory zostal wylosowany za pomoca metody ruletki
 		//do zmiennej liczba_3 jest zapisywany index drugiego osobnika
@@ -232,6 +235,7 @@ int main()
 
 		obliczWartosc(populacja2);
 		sortowanie(populacja1);
+		cout << "Najwieksza wartosc:" << populacja1[0] << endl;
 		sortowanie(populacja2);
 		swap(populacja1, populacja2);
 	}
