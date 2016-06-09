@@ -1,10 +1,24 @@
-﻿  stdafx.cpp
-  Lab1.cpp
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(41): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(108): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(155): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(156): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(188): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(199): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-c:\users\mirosław\desktop\ok\lab1-master\lab1\lab1.cpp(215): warning C4018: '<' : signed/unsigned mismatch
-  Lab1.vcxproj -> C:\Users\Mirosław\Desktop\ok\Lab1-master\Debug\Lab1.exe
+﻿Build started 2016-06-09 17:00:10.
+     1>Project "C:\Users\Salieri\Documents\GitHub\Lab1\Lab1\Lab1.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets(76,5): warning : Access to the path 'c:\users\salieri\documents\github\lab1\debug\lab1.exe' is denied.
+     1>ClCompile:
+         D:\Programy\MS Visual Studio 2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Lab1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Programy\MS Visual Studio 2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Lab1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Lab1.cpp
+         Lab1.cpp
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(41): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(108): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(155): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(156): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(188): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(199): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\salieri\documents\github\lab1\lab1\lab1.cpp(215): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         D:\Programy\MS Visual Studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.lib" /MACHINE:X86 Debug\Lab1.obj
+         Debug\stdafx.obj
+     1>LINK : fatal error LNK1104: cannot open file 'C:\Users\Salieri\Documents\GitHub\Lab1\Debug\Lab1.exe'
+     1>Done Building Project "C:\Users\Salieri\Documents\GitHub\Lab1\Lab1\Lab1.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.15

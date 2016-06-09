@@ -189,10 +189,10 @@ int main()
 
 			for (int j = 0; j < 41; j++){
 				if (j < procent_krzyzowania){
-					populacja2[i].bity[j] = populacja1[liczba_2].bity[j];
+					populacja2[i].bity[j] = populacja1[liczba_2-1].bity[j];
 				}
 				else{
-					populacja2[i].bity[j] = populacja1[liczba_3].bity[j];
+					populacja2[i].bity[j] = populacja1[liczba_3-1].bity[j];
 				}
 
 			}
