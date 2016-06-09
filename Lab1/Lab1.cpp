@@ -168,32 +168,32 @@ int main()
 
 		for (int g = 0; g < Y; g++)
 		{
-			liczba = (double)((rand() % 12));
-			liczba_1 = (double)((rand() % 12));
-			if (liczba < 5){
-				liczba_2 = 1;
+			liczba = (double)((rand() % 55));
+			liczba_1 = (double)((rand() % 55));
+			if (liczba < 20){
+				liczba_2 = (rand() % 10);
 			}
-			else if (liczba < 8){
-				liczba_2 = 2;
+			else if (liczba < 35){
+				liczba_2 = 9 + (rand() % 40);
 			}
-			else if (liczba < 10){
-				liczba_2 = 3;
+			else if (liczba < 45){
+				liczba_2 = 48 + (rand() % 30);
 			}
 			else{
-				liczba_2 = 4;
+				liczba_2 = 73+(rand() % 25);
 			}
 
-			if (liczba_1 < 5){
-				liczba_3 = 1;
+			if (liczba_1 < 20){
+				liczba_3 = (rand() % 10);
 			}
-			else if (liczba_1 < 8){
-				liczba_3 = 2;
+			else if (liczba_1 < 35){
+				liczba_3 = 9 + (rand() % 40);
 			}
-			else if (liczba_1 < 10){
-				liczba_3 = 3;
+			else if (liczba_1 < 45){
+				liczba_3 = 48 + (rand() % 30);
 			}
 			else{
-				liczba_3 = 4;
+				liczba_3 = 73+(rand() % 25);
 			}
 
 
@@ -205,10 +205,17 @@ int main()
 
 			for (int j = 0; j < 41; j++){
 				if (j < procent_krzyzowania){
+<<<<<<< HEAD
+					populacja2[g].bity[j] = populacja1[liczba_2].bity[j];
+				}
+				else{
+					populacja2[g].bity[j] = populacja1[liczba_3].bity[j];
+=======
 					populacja2[g].bity[j] = populacja1[liczba_2 - 1].bity[j];
 				}
 				else{
 					populacja2[g].bity[j] = populacja1[liczba_3 - 1].bity[j];
+>>>>>>> origin/master
 				}
 
 			}

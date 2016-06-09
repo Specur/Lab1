@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 ﻿Build started 2016-06-09 19:20:13.
+=======
+<<<<<<< HEAD
+﻿  Lab1.cpp
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(50): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(114): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(171): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(172): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(204): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(215): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\mirosław\desktop\lab1-master (10)\lab1-master\lab1\lab1.cpp(231): warning C4018: '<' : signed/unsigned mismatch
+  Lab1.vcxproj -> C:\Users\Mirosław\Desktop\Lab1-master (10)\Lab1-master\Debug\Lab1.exe
+=======
+﻿Build started 2016-06-09 18:39:16.
+>>>>>>> origin/master
      1>Project "C:\Users\Salieri\Documents\GitHub\Lab1\Lab1\Lab1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\Programy\MS Visual Studio 2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Lab1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Lab1.cpp
@@ -18,4 +33,9 @@
 
 Build succeeded.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:01.03
+=======
+Time Elapsed 00:00:00.99
+>>>>>>> origin/master
+>>>>>>> origin/master
