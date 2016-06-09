@@ -31,13 +31,21 @@ ostream & operator<< (ostream &wyjscie, const Liczba &s)
 }
 
 
-double obliczWartosc(double x)
+void obliczWartosc(vector <Liczba> &populacja1)
 {
-	return (x*x*x) - (x *x) + sin(4 * x) - cos(15 * x);
+	double x;
+	for (int i = 0; i < Y; i++)
+	{
+		x = populacja1[i].x;
+		populacja1[i].wartosc=(x*x*x) - (x *x) + sin(4 * x) - cos(15 * x);
+	}
+
+	
 }
 
 void obliczRozwiniecie(Liczba &populacja1)
 {
+
 	int cyfra = populacja1.x;
 	if (populacja1.x < 0)
 	{
@@ -121,36 +129,40 @@ int main()
 		populacja1.push_back(tmp);
 		tmp.x = 0;
 		populacja2.push_back(tmp);
-		obliczRozwiniecie(populacja1[i]);
+
 		//for (int j = 0; j < 40; j++)
 		//cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
-		populacja1[i].wartosc = obliczWartosc(populacja1[i].x);
 	}
-
-
-
 	sortowanie(populacja1);
+
+
+	
 
 	cout << "---------------Iteracje---------------" << endl;
 
 	for (int i = 0; i < 200000; i++)
 	{
+		
 		cout << "Iteracja: " << i + 1 << endl;
-
-
-
-		/** warunki zakoñczenia iteracji -NIE WIEM JAK ZROBIC xd
-		if (populacja1[0].wartosc == 0)
+		for (int i = 0; i < Y; i++)
 		{
-		cout << "Idealne dopasowanie: " << endl << "Nazwa: " << populacja1[0].x << endl << " Fitness: " << populacja1[0].wartosc;
+			obliczRozwiniecie(populacja1[i]);
+			
+		}
+		obliczWartosc(populacja1);
+		obliczWartosc(populacja2);
+		
+		if (populacja1[0].wartosc >1.7)
+		{
+		cout << "Idealne dopasowanie: " << endl << "X =  " << populacja1[0].x << endl << " Wartosc: " << populacja1[0].wartosc;
 		getchar();
 		exit(1);
-		}*/
+		}
 
 		//tutaj do zmiennej liczba_2 jest przypisywany nr indexu osobnika ktory zostal wylosowany za pomoca metody ruletki
 		//do zmiennej liczba_3 jest zapisywany index drugiego osobnika
 
-		for (int i = 0; i < Y; i++)
+		for (int g = 0; g < Y; g++)
 		{
 			liczba = (double)((rand() % 12));
 			liczba_1 = (double)((rand() % 12));
@@ -189,21 +201,21 @@ int main()
 
 			for (int j = 0; j < 41; j++){
 				if (j < procent_krzyzowania){
-					populacja2[i].bity[j] = populacja1[liczba_2-1].bity[j];
+					populacja2[g].bity[j] = populacja1[liczba_2 - 1].bity[j];
 				}
 				else{
-					populacja2[i].bity[j] = populacja1[liczba_3-1].bity[j];
+					populacja2[g].bity[j] = populacja1[liczba_3 - 1].bity[j];
 				}
 
 			}
 			czy_mutujemy = (double)((rand() % 100));
 			if (czy_mutujemy < 5){
 				int mutowany_bit = rand() % 40;
-				if (populacja2[i].bity[mutowany_bit] == 0){
-					populacja2[i].bity[mutowany_bit] = 1;
+				if (populacja2[g].bity[mutowany_bit] == 0){
+					populacja2[g].bity[mutowany_bit] = 1;
 				}
 				else{
-					populacja2[i].bity[mutowany_bit] = 0;
+					populacja2[g].bity[mutowany_bit] = 0;
 				}
 			}
 
@@ -212,10 +224,13 @@ int main()
 
 
 		//obliczanie wartoœci funkcji
-		for (int i = 0; i < populacja2.size(); i++) {
-			populacja2[i].wartosc = obliczWartosc(populacja2[i].x);
+		for (int q = 0; q < populacja2.size(); q++) {
+			populacja2[q].x = obliczWartoscRozwiniecia(populacja2[q]);
 		}
 
+
+		obliczWartosc(populacja2);
+		sortowanie(populacja1);
 		sortowanie(populacja2);
 		swap(populacja1, populacja2);
 	}
