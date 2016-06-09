@@ -165,7 +165,8 @@ int main()
 
 		//tutaj do zmiennej liczba_2 jest przypisywany nr indexu osobnika ktory zostal wylosowany za pomoca metody ruletki
 		//do zmiennej liczba_3 jest zapisywany index drugiego osobnika
-
+		sortowanie(populacja1);
+		sortowanie(populacja2);
 		for (int g = 0; g < Y; g++)
 		{
 			liczba = (double)((rand() % 55));
@@ -201,21 +202,14 @@ int main()
 			//tutaj mamy juz wybrane osobniki liczba_2 i liczba_3 przechowuja ich indexy 
 			//teraz krzyzowanie i zapisywanie do populacja2
 
-			procent_krzyzowania = (double)((1 + rand() % 40));
+			procent_krzyzowania = (double)((1 + rand() % 39));
 
-			for (int j = 0; j < 41; j++){
+			for (int j = 1; j < 41; j++){
 				if (j < procent_krzyzowania){
-<<<<<<< HEAD
 					populacja2[g].bity[j] = populacja1[liczba_2].bity[j];
 				}
 				else{
 					populacja2[g].bity[j] = populacja1[liczba_3].bity[j];
-=======
-					populacja2[g].bity[j] = populacja1[liczba_2 - 1].bity[j];
-				}
-				else{
-					populacja2[g].bity[j] = populacja1[liczba_3 - 1].bity[j];
->>>>>>> origin/master
 				}
 
 			}
@@ -244,6 +238,7 @@ int main()
 		sortowanie(populacja1);
 		cout << "Najwieksza wartosc:" << populacja1[0] << endl;
 		sortowanie(populacja2);
+		
 		swap(populacja1, populacja2);
 	}
 
