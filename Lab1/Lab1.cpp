@@ -125,7 +125,7 @@ int main()
 		tmp.x = -2;
 		while (tmp.x > 1 || tmp.x < -1)
 		{
-			tmp.x = ((double)((rand() % 20000)*10.3) - 100000.0) / 100000.0;
+			tmp.x = ((double)((rand() % 20000)*10000.3634) - 100000000.0) / 100000000.0;
 		}
 		//cout << setprecision(20) << tmp.x;
 		populacja1.push_back(tmp);
