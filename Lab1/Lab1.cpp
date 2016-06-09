@@ -10,7 +10,7 @@
 #include <Windows.h>
 
 using namespace std;
-#define Y 4
+#define Y 32
 
 class Liczba
 {
@@ -133,6 +133,7 @@ int main()
 		//for (int j = 0; j < 40; j++)
 		//cout << endl << populacja1[i].bity[j] << " jest bitem numer: " << j  << endl;
 	}
+	obliczWartosc(populacja1);
 	sortowanie(populacja1);
 
 
@@ -152,9 +153,9 @@ int main()
 		obliczWartosc(populacja1);
 		obliczWartosc(populacja2);
 		
-		if (populacja1[0].wartosc >1.7)
+		if (populacja1[0].wartosc >1.72)
 		{
-		cout << "Idealne dopasowanie: " << endl << "X =  " << populacja1[0].x << endl << " Wartosc: " << populacja1[0].wartosc;
+		cout << "Idealne dopasowanie: " << endl << "X =  " << populacja1[0].x << endl << "Wartosc: " << populacja1[0].wartosc;
 		getchar();
 		exit(1);
 		}
