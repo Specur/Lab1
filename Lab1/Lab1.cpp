@@ -32,7 +32,7 @@ ostream & operator<< (ostream &wyjscie, const Liczba &s)
 }
 
 
-void obliczWartosc(vector <Liczba> &populacja1)
+void obliczWartosc(vector <Liczba> &populacja1)  //obliczanie wartoœci podanej funkcji dla wylosowanego x
 {
 	double x;
 	for (int i = 0; i < Y; i++)
@@ -44,7 +44,7 @@ void obliczWartosc(vector <Liczba> &populacja1)
 	
 }
 
-void obliczRozwiniecie(Liczba &populacja1)
+void obliczRozwiniecie(Liczba &populacja1)	//obliczanie rozwiniecia bitowego dla wylosowanego x
 {
 
 	int cyfra = populacja1.x;
@@ -75,9 +75,9 @@ void obliczRozwiniecie(Liczba &populacja1)
 			populacja1.bity[i] = 0;
 	}
 }
-
-double obliczWartoscRozwiniecia(Liczba &populacja1)
-{
+	
+double obliczWartoscRozwiniecia(Liczba &populacja1)		//obliczanie wartosci x z rozwiniêcia bitowego
+{	
 	double wartosc;
 	if (populacja1.bity[0] == 0)
 		wartosc = 0;
@@ -119,13 +119,14 @@ int main()
 	int liczba_3;
 	int procent_krzyzowania;
 	int czy_mutujemy;
+
 	//wartosci poczatkowe
 	for (int i = 0; i < Y; i++)
 	{
 		tmp.x = -2;
 		while (tmp.x > 1 || tmp.x < -1)
 		{
-			tmp.x = ((double)((rand() % 20000)*10000.3634) - 100000000.0) / 100000000.0;
+			tmp.x = ((double)((rand() % 20000)*10000.3634) - 100000000.0) / 100000000.0;		//losowanie
 		}
 		//cout << setprecision(20) << tmp.x;
 		populacja1.push_back(tmp);
@@ -143,7 +144,7 @@ int main()
 
 	cout << "---------------Iteracje---------------" << endl;
 
-	for (int i = 0; i < 200000; i++)
+	for (int i = 0; i < 200000; i++)		//g³ówna pêtla 
 	{
 		
 		cout << "Iteracja: " << i + 1 << endl;
@@ -154,7 +155,8 @@ int main()
 		}
 		obliczWartosc(populacja1);
 		obliczWartosc(populacja2);
-		//sprawdzamy czy wartoœæ pierwszego (najlepszego) elementu jest ju¿ wystarczaj¹co bliska rozwi¹zaniu
+
+		//sprawdzamy czy wartoœæ pierwszego (najlepszego) elementu jest ju¿ wystarczaj¹co bliska rozwi¹zania
 		if (populacja1[0].wartosc >1.72)
 		{
 		cout << "Idealne dopasowanie: " << endl << "X =  " << populacja1[0].x << endl << "Wartosc: " << populacja1[0].wartosc;
@@ -213,6 +215,7 @@ int main()
 				}
 
 			}
+			//losujemy % na mutacjê, jeœli mniejszy od 5 to mutujemy, jeœli nie zostawiamy
 			czy_mutujemy = (double)((rand() % 100));
 			if (czy_mutujemy < 5){
 				int mutowany_bit = rand() % 40;
@@ -231,12 +234,13 @@ int main()
 		//obliczanie wartoœci funkcji
 		for (int q = 0; q < populacja2.size(); q++) {
 			populacja2[q].x = obliczWartoscRozwiniecia(populacja2[q]);
+			populacja1[q].x = obliczWartoscRozwiniecia(populacja1[q]);
 		}
 
-
+		obliczWartosc(populacja1);
 		obliczWartosc(populacja2);
 		sortowanie(populacja1);
-		cout << "Najwieksza wartosc:" << populacja1[0] << endl;
+		//cout << "Najwieksza wartosc:" << populacja1[0] << endl;
 		sortowanie(populacja2);
 		
 		swap(populacja1, populacja2);
